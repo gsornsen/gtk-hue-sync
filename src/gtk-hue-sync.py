@@ -30,6 +30,7 @@ def get_cli_args():
     args = parser.parse_args()
     return args
 
+
 def change_colors(verbose, fullscreen, transition, interval, ignore_white, ignore_black):
     dc = DominantColor(fullscreen, ignore_white, ignore_black)
     rgb_color = dc.get_dominant_color()

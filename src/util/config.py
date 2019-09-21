@@ -15,7 +15,7 @@ class Config:
     def get_config(self):
         if not os.path.exists(self.config_file):
             self.config_file = os.path.join(self.current_path, '..', '..', 'config.yaml')
-        
+
         with open(self.config_file, 'r') as stream:
             self.config = yaml.safe_load(stream)
         return self.config
