@@ -29,4 +29,7 @@ python setup.py install
 cd $CWD
 rm -rf /tmp/color-thief-py
 
+# Set-up pre-commit hook
+cp -rv git_hooks/pre-commit .git/hooks/pre-commit
+
 echo $'\nSuccess! Please enter source env/bin/activate\n'
