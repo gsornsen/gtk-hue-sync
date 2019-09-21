@@ -2,7 +2,6 @@
 
 import time
 import sys
-import argparse
 from qhue import Bridge
 from rgbxy import Converter
 from rgbxy import GamutC
