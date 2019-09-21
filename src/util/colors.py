@@ -2,7 +2,6 @@
 
 import pyscreenshot as ImageGrab
 from util.displays import Monitor
-from PIL import Image
 from colorthief import ColorThief
 
 
