@@ -25,7 +25,7 @@ class Sync:
         self.transition = transition
         self.interval = interval
         self.ignore_white = ignore_white
-        self.ignore_black = ignore_white
+        self.ignore_black = ignore_black
         # Instantiate qHue Bridge
         self.bridge = Bridge(self.ip, self.user)
 
