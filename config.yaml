@@ -11,8 +11,8 @@ bridge:
 # Hue Documentation to get list of all lights:
 #    https://developers.meethue.com/develop/hue-api/lights-api/
 
-# Lights to change colors, match the integer of the lights from the
-# above stop to create a list of lights you would like to change colors
+# Lights to change colors. Match the integer of the lights from the
+# above step to create a list of lights you would like to change colors
 lights:
     - 1 # Hue Color Lamp 1
     - 4 # Hue Play 1

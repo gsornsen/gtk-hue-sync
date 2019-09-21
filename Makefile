@@ -1,5 +1,5 @@
 # gtk-hue-sync
-# SHELL:=/bin/bash
+
 CONFIG_DIR=${HOME}/.config/gtk-hue-sync
 INSTALL_DIR=/usr/bin
 
@@ -36,7 +36,7 @@ install:
 	make
 	sudo cp -rv dist/gtk-hue-sync ${INSTALL_DIR}
 	mkdir -p ${CONFIG_DIR}
-	cp -r config.yaml ${CONFIG_DIR}
+	cp -rv config.yaml ${CONFIG_DIR}
 
 .PHONY: uninstall
 uninstall:
