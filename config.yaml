@@ -6,8 +6,6 @@ bridge:
     user: UnnyZonejfw0Su1AJlQ1PmNGFh7mBHaRxc73cZH0
     ip: 192.168.1.114
 
-
-
 # Hue Documentation to get list of all lights:
 #    https://developers.meethue.com/develop/hue-api/lights-api/
 
