@@ -14,7 +14,8 @@ install:
 
 jobs:
   include:
-    - stage: "Release"
+    - if: branch = master
+      stage: "Release"
       name: "GitHub Release"
       if: branch = master
       script: make deb BUILD_NUMBER=$TRAVIS_TAG
@@ -29,18 +30,19 @@ jobs:
         file: $TRAVIS_BUILD_DIR/*.deb
         skip_cleanup: true
         overwrite: true
-    - stage: "Dev Release"
-          name: "GitHub Dev Release"
-          if: branch != master
-          script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
-          before_deploy:
-            - git config --local user.name "gsornsen"
-            - git config --local user.email "gsornsen@gmail.com"
-            - git tag $TRAVIS_TAG-dev
-          deploy:
-            provider: releases
-            api_key: $GITHUB_OAUTH_TOKEN
-            file_glob: true
-            file: $TRAVIS_BUILD_DIR/*.deb
-            skip_cleanup: true
-            overwrite: true
+    - if: branch != master
+      stage: "Dev Release"
+      name: "GitHub Dev Release"
+      if: branch != master
+      script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
+      before_deploy:
+        - git config --local user.name "gsornsen"
+        - git config --local user.email "gsornsen@gmail.com"
+        - git tag $TRAVIS_TAG-dev
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        file_glob: true
+        file: $TRAVIS_BUILD_DIR/*.deb
+        skip_cleanup: true
+        overwrite: true
