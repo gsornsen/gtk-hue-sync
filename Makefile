@@ -24,11 +24,15 @@ virtualenv:
 pip:
 	env/bin/pip3 install -r requirements.txt
 
+.PHONY: travis-pip
+travis-pip:
+	env/bin/pip3 install --no-binary -r requirements.txt
+
 .PHONY: env
 env: apt virtualenv pip
 
 .PHONY: travis-env
-travis-env: travis-apt virtualenv pip
+travis-env: travis-apt virtualenv travis-pip
 
 .PHONY: clean
 clean:
