@@ -14,7 +14,7 @@ apt:
 .PHONY: travis-apt
 travis-apt:
 	sudo apt-get update
-	sudo apt install virtualenv gcc python3.7 python3.7-dev
+	sudo apt install virtualenv gcc
 
 .PHONY: virtualenv
 virtualenv:
