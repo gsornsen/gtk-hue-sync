@@ -9,16 +9,16 @@ sudo: required
 install:
   - ./setup.sh travis
   - source env/bin/activate
+  - export TRAVIS_TAG=0.0.2
 
 jobs:
   include:
     - stage: "Release"
       name: "GitHub Release"
-      script: make deb
+      script: make deb BUILD_NUMBER=$TRAVIS_TAG
       before_deploy:
         - git config --local user.name "gsornsen"
         - git config --local user.email "gsornsen@gmail.com"
-        - export TRAVIS_TAG="0.0.2"
         - git tag $TRAVIS_TAG
       deploy:
         provider: releases
