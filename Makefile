@@ -10,7 +10,7 @@ make:
 .PHONY: apt
 apt:
 	sudo apt-get update
-	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config gir1.2-gtk-3.0 virtualenv
+	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config gir1.2-gtk-3.0 virtualenv pop-desktop
 
 .PHONY: virtualenv
 virtualenv:
