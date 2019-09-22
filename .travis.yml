@@ -1,4 +1,5 @@
 language: python
+dist: disco
 
 python:
   - "3.7"
@@ -9,11 +10,13 @@ install:
   - ./setup.sh travis
   - source env/bin/activate
 
-script: make
-
-deploy:
-  provider: releases
-  api_key: "GITHUB_OAUTH_TOKEN"
-  file: "FILE_TO_UPLOAD"
-  skip_cleanup: true
-  overwrite: true
+jobs:
+  include:
+    - script: make
+    - stage: GitHub Release
+      deploy:
+        provider: releases
+        api_key: "GITHUB_OAUTH_TOKEN"
+        file: "FILE_TO_UPLOAD"
+        skip_cleanup: true
+        overwrite: true
