@@ -9,12 +9,13 @@ sudo: required
 install:
   - ./setup.sh travis
   - source env/bin/activate
-  - export TRAVIS_TAG=0.0.5
+  - export TRAVIS_TAG=0.0.6
   - export TRAVIS_BUILD_DIR=/home/travis/build/gsornsen/gtk-hue-sync/dist
 
 jobs:
   include:
-    - stage: "Release"
+    - if: branch = master
+      stage: "Release"
       name: "GitHub Release"
       script: make deb BUILD_NUMBER=$TRAVIS_TAG
       before_deploy:
@@ -22,9 +23,29 @@ jobs:
         - git config --local user.email "gsornsen@gmail.com"
         - git tag $TRAVIS_TAG
       deploy:
-        provider: releases
-        api_key: $GITHUB_OAUTH_TOKEN
-        file_glob: true
-        file: $TRAVIS_BUILD_DIR/*.deb
-        skip_cleanup: true
-        overwrite: true
+        - provider: releases
+          api_key: $GITHUB_OAUTH_TOKEN
+          file_glob: true
+          file: $TRAVIS_BUILD_DIR/*.deb
+          skip_cleanup: true
+          overwrite: true
+          on:
+            branch: master
+
+    - if: branch != master
+      stage: "Dev Release"
+      name: "GitHub Dev Release"
+      script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
+      before_deploy:
+        - git config --local user.name "gsornsen"
+        - git config --local user.email "gsornsen@gmail.com"
+        - git tag $TRAVIS_TAG-dev
+      deploy:
+        - provider: releases
+          api_key: $GITHUB_OAUTH_TOKEN
+          file_glob: true
+          file: $TRAVIS_BUILD_DIR/*.deb
+          skip_cleanup: true
+          overwrite: true
+          on:
+            branch: develop
