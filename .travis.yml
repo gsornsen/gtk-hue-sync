@@ -32,7 +32,7 @@ jobs:
           on:
             branch: master
 
-    - if: branch != master
+    - if: branch = develop
       stage: "Dev Release"
       name: "GitHub Dev Release"
       script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
