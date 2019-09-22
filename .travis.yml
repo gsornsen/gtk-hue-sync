@@ -22,7 +22,7 @@ jobs:
         - script: make
       deploy:
         provider: releases
-        api_key: "GITHUB_OAUTH_TOKEN"
-        file: "FILE_TO_UPLOAD"
+        api_key: $GITHUB_OAUTH_TOKEN
+        file: $FILE_TO_UPLOAD
         skip_cleanup: true
         overwrite: true
