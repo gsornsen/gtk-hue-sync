@@ -2,6 +2,10 @@
 
 Linux compatible CLI application to sync dominant primary display color with Hue Lights
 
+# Demo
+
+![gtk-hue-sync](media/gtk-hue-sync.gif)
+
 # Installation
 
 Checkout the project from GitHub:
