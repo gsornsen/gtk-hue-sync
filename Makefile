@@ -14,7 +14,7 @@ apt:
 .PHONY: travis-apt
 travis-apt:
 	sudo apt-get update
-	sudo apt install virtualenv gcc libgirepository1.0-dev
+	sudo apt install virtualenv gcc libgirepository1.0-dev libgirepository-gir2.0
 
 .PHONY: virtualenv
 virtualenv:

@@ -12,8 +12,10 @@ install:
 
 jobs:
   include:
-    - script: make
+    - stage: Test
+      script: echo "Test"
     - stage: GitHub Release
+      script: make
       deploy:
         provider: releases
         api_key: "GITHUB_OAUTH_TOKEN"
