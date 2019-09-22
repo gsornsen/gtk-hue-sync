@@ -18,11 +18,11 @@ travis-apt:
 
 .PHONY: virtualenv
 virtualenv:
-	virtualenv -p python3.7 env
+	virtualenv -p python3 env
 
 .PHONY: pip
 pip:
-	env/bin/pip3.7 install -r requirements.txt
+	env/bin/pip3 install -r requirements.txt
 
 .PHONY: env
 env: apt virtualenv pip

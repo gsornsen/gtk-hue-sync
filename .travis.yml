@@ -1,9 +1,9 @@
-language: generic
+language: python
 
 sudo: required
 
 install:
-  - sudo ./setup.sh travis
+  - ./setup.sh travis
   - source env/bin/activate
 
 script: make
