@@ -8,7 +8,13 @@ make:
 
 .PHONY: apt
 apt:
-	sudo apt install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 git virtualenv
+	sudo apt-get update
+	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 git virtualenv
+
+.PHONY: travis-apt
+travis-apt:
+	sudo apt-get update
+	sudo apt install virtualenv gcc
 
 .PHONY: virtualenv
 virtualenv:
@@ -20,6 +26,9 @@ pip:
 
 .PHONY: env
 env: apt virtualenv pip
+
+.PHONY: travis-env
+travis-env: travis-apt virtualenv pip
 
 .PHONY: clean
 clean:

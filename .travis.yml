@@ -3,7 +3,7 @@ language: generic
 sudo: required
 
 install:
-  - sudo ./setup.sh
+  - sudo ./setup.sh travis
   - source env/bin/activate
 
 script: make

@@ -5,7 +5,11 @@ CWD=$PWD
 # Create virtual environment
 if [ ! -d "env" ];then
     echo "Creating virtual environment\n"
-    make env
+    if [ $1 = 'travis' ];then
+        make travis-env
+    else
+        make env
+    fi
 else
     echo "Virtual environment exists\n"
 fi
