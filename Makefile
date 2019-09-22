@@ -15,7 +15,10 @@ apt:
 .PHONY: travis-apt
 travis-apt:
 	sudo add-apt-repository -y ppa:system76/pop
-	sudo apt update
+	sudo apt-get update
+	# This is ridiculous to have to install an entire
+	# desktop environment to get the proper X11 dependencies
+	# during build. Fix this!
 	sudo apt-get install pop-desktop
 
 .PHONY: virtualenv

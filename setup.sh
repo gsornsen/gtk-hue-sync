@@ -5,7 +5,7 @@ CWD=$PWD
 # Create virtual environment
 if [ ! -d "env" ];then
     printf "\nCreating virtual environment\n"
-    if [ $1 = 'travis' ];then
+    if [[ "$1" == 'travis' ]];then
         echo "Travis Environment"
         make travis-env
     else
