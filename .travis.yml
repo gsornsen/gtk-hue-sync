@@ -13,7 +13,7 @@ install:
 jobs:
   include:
     - stage: Test
-      script: echo "Test"
+      script: skip
     - stage: GitHub Release
       script: make
       deploy:
