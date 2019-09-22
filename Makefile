@@ -5,6 +5,7 @@ INSTALL_DIR=/usr/bin
 
 make:
 	pyinstaller -F src/gtk-hue-sync.py -p src/ --workpath /tmp --specpath /tmp
+	chmod +x dist/gtk-hue-sync
 
 .PHONY: apt
 apt:

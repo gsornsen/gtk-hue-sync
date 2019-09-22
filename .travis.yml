@@ -1,5 +1,5 @@
 language: python
-dist: disco
+dist: bionic
 
 python:
   - "3.7"
