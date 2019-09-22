@@ -12,15 +12,11 @@ install:
 
 jobs:
   include:
-    - if: branch = master
-    # - stage: "Test"
-    #   name: "Unit Tests"
-    #   script: skip
     - stage: "Release"
       name: "GitHub Release"
-      before_deploy:
-        - script: make
+      script: make
       deploy:
+        if: branch = master
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
         file: $FILE_TO_UPLOAD
