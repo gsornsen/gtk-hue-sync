@@ -26,7 +26,7 @@ pip:
 
 .PHONY: travis-pip
 travis-pip:
-	env/bin/pip3 install --no-binary -r requirements.txt
+	env/bin/pip3 install --no-binary:all -r requirements.txt
 
 .PHONY: env
 env: apt virtualenv pip
