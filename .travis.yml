@@ -17,7 +17,6 @@ jobs:
     - if: branch = master
       stage: "Release"
       name: "GitHub Release"
-      if: branch = master
       script: make deb BUILD_NUMBER=$TRAVIS_TAG
       before_deploy:
         - git config --local user.name "gsornsen"
@@ -33,7 +32,6 @@ jobs:
     - if: branch != master
       stage: "Dev Release"
       name: "GitHub Dev Release"
-      if: branch != master
       script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
       before_deploy:
         - git config --local user.name "gsornsen"
