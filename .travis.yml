@@ -9,7 +9,8 @@ sudo: required
 install:
   - ./setup.sh travis
   - source env/bin/activate
-  - export TRAVIS_TAG=0.0.2
+  - export TRAVIS_TAG=0.0.3
+  - export TRAVIS_BUILD_DIR=/home/travis/build/gsornsen/gtk-hue-sync/dist/
 
 jobs:
   include:
@@ -23,6 +24,7 @@ jobs:
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
-        file: $FILE_TO_UPLOAD
+        file_glob: true
+        file: $TRAVIS_BUILD_DIR/*.deb
         skip_cleanup: true
         overwrite: true
