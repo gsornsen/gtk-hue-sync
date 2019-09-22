@@ -14,7 +14,7 @@ apt:
 .PHONY: travis-apt
 travis-apt:
 	sudo apt-get update
-	sudo apt install virtualenv gcc python3 python3-dev
+	sudo apt install virtualenv gcc python3.7 python3.7-dev
 
 .PHONY: virtualenv
 virtualenv:
@@ -26,7 +26,7 @@ pip:
 
 .PHONY: travis-pip
 travis-pip:
-	env/bin/pip3 install --no-binary:all -r requirements.txt
+	env/bin/pip3 install -r requirements.txt
 
 .PHONY: env
 env: apt virtualenv pip
