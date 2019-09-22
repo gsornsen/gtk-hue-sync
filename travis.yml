@@ -2,8 +2,9 @@ language: generic
 
 sudo: required
 
-install:
-  - ./setup.sh
-  - source env/bin/activate
-
+# install:
+#   - ./setup.sh
+#   - source env/bin/activate
+script: setup.sh
+script: source env/bin/activate
 script: make
