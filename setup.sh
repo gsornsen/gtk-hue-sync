@@ -4,14 +4,10 @@ CWD=$PWD
 
 # Create virtual environment
 if [ ! -d "env" ];then
-    echo "Creating virtual environment\n"
-    if [ $1 = 'travis' ];then
-        make travis-env
-    else
-        make env
-    fi
+    printf "\nCreating virtual environment\n"
+    make env
 else
-    echo "Virtual environment exists\n"
+    printf "\nVirtual environment exists\n"
 fi
 
 # Source virtual environment

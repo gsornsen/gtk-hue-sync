@@ -9,12 +9,7 @@ make:
 .PHONY: apt
 apt:
 	sudo apt-get update
-	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 git virtualenv
-
-.PHONY: travis-apt
-travis-apt:
-	sudo apt-get update
-	sudo apt-get install virtualenv gcc libgirepository1.0-dev gir1.2-gtk-3.0
+	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config gir1.2-gtk-3.0 virtualenv
 
 .PHONY: virtualenv
 virtualenv:
@@ -24,15 +19,8 @@ virtualenv:
 pip:
 	env/bin/pip3 install -r requirements.txt
 
-.PHONY: travis-pip
-travis-pip:
-	env/bin/pip3 install -r requirements.txt
-
 .PHONY: env
 env: apt virtualenv pip
-
-.PHONY: travis-env
-travis-env: travis-apt virtualenv travis-pip
 
 .PHONY: clean
 clean:
