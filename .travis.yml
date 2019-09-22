@@ -3,7 +3,7 @@ language: generic
 sudo: required
 
 install:
-  - ./setup.sh
+  - sudo ./setup.sh
   - source env/bin/activate
 
 script: make
