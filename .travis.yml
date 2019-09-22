@@ -44,3 +44,5 @@ jobs:
         file: $TRAVIS_BUILD_DIR/*.deb
         skip_cleanup: true
         overwrite: true
+        on:
+          condition: branch =~ develop
