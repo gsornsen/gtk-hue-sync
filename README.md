@@ -10,6 +10,19 @@ Linux compatible CLI application to sync dominant primary display color with Hue
 
 ## Installation
 
+### Debian/Ubuntu/Pop_OS
+
+Download the [latest release](https://github.com/gsornsen/gtk-hue-sync/releases/latest)
+
+```bash
+cd ~/Downloads
+sudo apt install ./gtk-hue-sync*.deb
+```
+
+***
+
+## Installation from Source
+
 Checkout the project from GitHub:
 
 ```bash
