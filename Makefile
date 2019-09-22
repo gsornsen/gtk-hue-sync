@@ -10,7 +10,13 @@ make:
 .PHONY: apt
 apt:
 	sudo apt-get update
-	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config gir1.2-gtk-3.0 virtualenv pop-desktop
+	sudo apt-get install libgirepository1.0-dev gcc libcairo2-dev pkg-config gir1.2-gtk-3.0 virtualenv
+
+.PHONY: travis-apt
+travis-apt:
+	sudo add-apt-repository -y ppa:system76/pop
+	sudo apt update
+	sudo apt-get install pop-desktop
 
 .PHONY: virtualenv
 virtualenv:
@@ -22,6 +28,9 @@ pip:
 
 .PHONY: env
 env: apt virtualenv pip
+
+.PHONY: travis-env
+travis-env: travis-apt env
 
 .PHONY: clean
 clean:

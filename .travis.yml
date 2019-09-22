@@ -7,7 +7,7 @@ python:
 sudo: required
 
 install:
-  - ./setup.sh
+  - ./setup.sh travis
   - source env/bin/activate
 
 jobs:
