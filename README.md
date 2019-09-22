@@ -1,4 +1,6 @@
-# gtk-hue-sync
+# gtk-hue-sync 
+
+[![Build Status](https://travis-ci.org/gsornsen/gtk-hue-sync.svg?branch=master)](https://travis-ci.org/gsornsen/gtk-hue-sync)
 
 Linux compatible CLI application to sync dominant primary display color with Hue Lights
 
