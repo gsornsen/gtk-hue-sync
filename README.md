@@ -4,11 +4,11 @@
 
 Linux compatible CLI application to sync dominant primary display color with Hue Lights
 
-# Demo
+## Demo
 
 ![gtk-hue-sync](media/gtk-hue-sync.gif)
 
-# Installation
+## Installation
 
 Checkout the project from GitHub:
 
@@ -31,15 +31,16 @@ make install
 
 Installation location: `/usr/bin/gtk-hue-sync`
 
-# Configuration
+## Configuration
 
-#### Recommended reads:
+### Recommended reads
+
 https://developers.meethue.com/develop/get-started-2/
 
 https://developers.meethue.com/develop/hue-api/lights-api/
 
-
 #### Config location: `~/.config/gtk-hue-sync/config.yaml`
+
 ***
 
 Example:
@@ -63,7 +64,7 @@ lights:
     - 5 # Hue Play 2
 ```
 
-# Running
+## Running
 
 gtk-hue-sync has sane defaults and can be run without any arguments
 
@@ -78,6 +79,7 @@ gtk-hue-sync -h
 ```
 
 Optional arguments:
+
 ```bash
 usage: gtk-hue-sync [-h] [-v] [-f] [-i INTERVAL] [-t TRANSITION] [-w] [-b]
 
@@ -99,12 +101,14 @@ Recommended Usage:
 gtk-hue-sync -f
 ```
 
-# Running from Source
+## Running from Source
 
 The same options/menu above apply
 
 
 ```bash
+./setup.sh
+source env/bin/activate
 python src/gtk-hue-sync.py
 ```
 
@@ -114,11 +118,11 @@ or
 src/gtk-hue-sync.py
 ```
 
-# Contributions
+## Contributions
 
 Suggestions, Issues, Patches, Pull Requests, Testing all welcome. As of now this has only been tested on Pop_OS 19.04
 
-# Thanks
+## Thanks
 
 [fengsp: color-thief-py](https://github.com/fengsp/color-thief-py)
 
