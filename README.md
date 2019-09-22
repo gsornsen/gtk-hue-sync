@@ -33,10 +33,12 @@ Installation location: `/usr/bin/gtk-hue-sync`
 
 #### Recommended reads:
 https://developers.meethue.com/develop/get-started-2/
+
 https://developers.meethue.com/develop/hue-api/lights-api/
 
 
 #### Config location: `~/.config/gtk-hue-sync/config.yaml`
+***
 
 Example:
 
