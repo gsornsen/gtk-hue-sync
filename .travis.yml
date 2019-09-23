@@ -9,7 +9,7 @@ sudo: required
 install:
   - ./setup.sh travis
   - source env/bin/activate
-  - export TRAVIS_TAG=0.0.6
+  - export TRAVIS_TAG=0.0.7
   - export TRAVIS_BUILD_DIR=/home/travis/build/gsornsen/gtk-hue-sync/dist
 
 jobs:
@@ -39,7 +39,8 @@ jobs:
       before_deploy:
         - git config --local user.name "gsornsen"
         - git config --local user.email "gsornsen@gmail.com"
-        - git tag $TRAVIS_TAG-dev
+        - export TRAVIS_TAG=$TRAVIS_TAG-dev
+        - git tag $TRAVIS_TAG
       deploy:
         - provider: releases
           api_key: $GITHUB_OAUTH_TOKEN
