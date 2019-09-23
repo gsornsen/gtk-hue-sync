@@ -4,7 +4,7 @@ CONFIG_DIR=${HOME}/.config/gtk-hue-sync
 INSTALL_DIR=/usr/bin
 BUILD_DIR=dist
 DEB_BUILD_DIR=${BUILD_DIR}/.debian
-# BUILD_NUMBER can be overridden passing in a build number
+# BUILD_NUMBER can be overridden by passing in a build number
 # 		$ make deb BUILD_NUMBER=1.2.3
 BUILD_NUMBER=0.0.1
 GIT_HASH=$(shell git rev-parse --short HEAD)
@@ -13,7 +13,9 @@ ASSETS=${BUILD_DIR}/gtk-hue-sync ${BUILD_DIR}/config.yaml
 
 # Meta data for DEBIAN/control
 PACKAGE_NAME=gtk-hue-sync
-VERSION=${BUILD_NUMBER}.${GIT_HASH}
+# PACKAGE_NAME can be overriden by passing in a name
+#		$ make deb BUILD_NUMBER=1.2.3 PACKAGE_NAME=gtk-hue-sync-dev
+VERSION=${BUILD_NUMBER}
 ARCHITECTURE=amd64
 MAINTAINER=gerald@sornsen.io
 PRIORITY=optional
