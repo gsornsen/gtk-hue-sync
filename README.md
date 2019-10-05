@@ -48,9 +48,9 @@ Installation location: `/usr/bin/gtk-hue-sync`
 
 ### Recommended reads
 
-https://developers.meethue.com/develop/get-started-2/
+<https://developers.meethue.com/develop/get-started-2/>
 
-https://developers.meethue.com/develop/hue-api/lights-api/
+<https://developers.meethue.com/develop/hue-api/lights-api/>
 
 #### Config location: `~/.config/gtk-hue-sync/config.yaml`
 
@@ -118,7 +118,6 @@ gtk-hue-sync -f
 
 The same options/menu above apply
 
-
 ```bash
 ./setup.sh
 source env/bin/activate
@@ -140,6 +139,5 @@ Suggestions, Issues, Patches, Pull Requests, Testing all welcome. As of now this
 [fengsp: color-thief-py](https://github.com/fengsp/color-thief-py)
 
 [benknight: hue-python-rgb-converter](https://github.com/benknight/hue-python-rgb-converter)
-
 
 [quentinsf: qhue](https://github.com/quentinsf/qhue)
