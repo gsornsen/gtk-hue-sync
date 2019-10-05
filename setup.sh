@@ -31,7 +31,7 @@ rm -rf /tmp/hue-python-rgb-converter
 git clone https://github.com/gsornsen/color-thief-py.git /tmp/color-thief-py
 cd /tmp/color-thief-py
 python setup.py install
-cd $CWD
+cd "$CWD"
 rm -rf /tmp/color-thief-py
 
 # Set-up yapf pre-commit hook
