@@ -71,12 +71,13 @@ apt:
 # Install Travis CI/CD specific apt dependencies
 .PHONY: travis-apt
 travis-apt:
-	sudo add-apt-repository -y ppa:system76/pop
+	# sudo add-apt-repository -y ppa:system76/pop
 	sudo apt-get update
 	# This is ridiculous to have to install an entire
 	# desktop environment to get the proper X11 dependencies
 	# during build. Fix this!
-	sudo apt-get install pop-desktop
+	# sudo apt-get install pop-desktop
+	sudo apt install x11-common x11-utils
 
 # Set up python virtual environment
 .PHONY: virtualenv
