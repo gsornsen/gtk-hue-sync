@@ -10,3 +10,4 @@ pylint==2.3.1
 yapf==0.28.0
 flake8==3.7.8
 pytest==5.2.1
+coverage==4.5.4
