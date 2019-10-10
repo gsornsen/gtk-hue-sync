@@ -37,6 +37,12 @@ Set-up environment:
 source env/bin/activate
 ```
 
+Run tests:
+
+```bash
+make test
+```
+
 Install:
 
 ```bash

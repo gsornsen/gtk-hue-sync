@@ -120,5 +120,7 @@ uninstall:
 	sudo rm -rf ${INSTALL_DIR}/gtk-hue-sync
 	rm -rf ${CONFIG_DIR}
 
-
-
+# Run tests
+.PHONY: test
+test:
+	pytest src/tests

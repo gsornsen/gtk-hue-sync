@@ -22,7 +22,7 @@ source env/bin/activate
 git clone https://github.com/benknight/hue-python-rgb-converter.git /tmp/hue-python-rgb-converter
 cd /tmp/hue-python-rgb-converter
 python setup.py install
-cd $CWD
+cd "$CWD"
 rm -rf /tmp/hue-python-rgb-converter
 
 
