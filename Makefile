@@ -26,17 +26,17 @@ make:
 	cp -rv config.yaml  dist
 
 .PHONY: deb
-deb: make control prerm postinst
-	mkdir -p ${DEB_BUILD_DIR}/usr/bin
-	cp -rv ${ASSETS} ${DEB_BUILD_DIR}/usr/bin
-	mv ${DEB_BUILD_DIR}/usr/bin/config.yaml ${DEB_BUILD_DIR}/usr/bin/gtk-hue-sync-config.yaml
-	dpkg-deb --build ${DEB_BUILD_DIR} ${BUILD_DIR}/${PACKAGE_NAME}-${VERSION}.deb
+deb: make prerm postinst control
+	@ mkdir -p ${DEB_BUILD_DIR}/usr/bin
+	@ cp -rv ${ASSETS} ${DEB_BUILD_DIR}/usr/bin
+	@ mv ${DEB_BUILD_DIR}/usr/bin/config.yaml ${DEB_BUILD_DIR}/usr/bin/gtk-hue-sync-config.yaml
+	@ dpkg-deb --build ${DEB_BUILD_DIR} ${BUILD_DIR}/${PACKAGE_NAME}-${VERSION}.deb
 
 # Write the control file
 .PHONY: control
 control:
-	mkdir -p ${DEB_BUILD_DIR}/DEBIAN
-	echo "Package: ${PACKAGE_NAME}\n\
+	@ mkdir -p ${DEB_BUILD_DIR}/DEBIAN
+	@ echo "Package: ${PACKAGE_NAME}\n\
 	Architecture: ${ARCHITECTURE}\n\
 	Maintainer: ${MAINTAINER}\n\
 	Priority: ${PRIORITY}\n\
@@ -47,19 +47,19 @@ control:
 # Write prerm script
 .PHONY: prerm
 prerm:
-	printf '#!/bin/bash\n\
+	@ printf '#!/bin/bash\n\
 	sudo rm -rf $${INSTALL_DIR}/gtk-hue-sync\n\
 	sudo rm -rf $${CONFIG_DIR}' > ${DEB_BUILD_DIR}/DEBIAN/prerm
-	chmod +x ${DEB_BUILD_DIR}/DEBIAN/prerm
+	@ chmod +x ${DEB_BUILD_DIR}/DEBIAN/prerm
 
 # Write postinst script
 .PHONY: postinst
 postinst:
-	printf '#!/bin/bash\n\
+	@ printf '#!/bin/bash\n\
 	mkdir -p $${HOME}/.config/gtk-hue-sync\n\
 	sudo mv /usr/bin/gtk-hue-sync-config.yaml $${HOME}/.config/gtk-hue-sync/config.yaml\n\
 	sudo chown -R $${SUDO_USER}:$${SUDO_USER} $${HOME}/.config/gtk-hue-sync\n\' > ${DEB_BUILD_DIR}/DEBIAN/postinst
-	chmod +x ${DEB_BUILD_DIR}/DEBIAN/postinst
+	@ chmod +x ${DEB_BUILD_DIR}/DEBIAN/postinst
 
 
 # Install build dependencies
@@ -71,12 +71,7 @@ apt:
 # Install Travis CI/CD specific apt dependencies
 .PHONY: travis-apt
 travis-apt:
-	# sudo add-apt-repository -y ppa:system76/pop
-	sudo apt-get update
-	# This is ridiculous to have to install an entire
-	# desktop environment to get the proper X11 dependencies
-	# during build. Fix this!
-	# sudo apt-get install pop-desktop
+	# The minimal VM travis spins up needs some X11 dependencies
 	sudo apt install x11-common x11-utils
 
 # Set up python virtual environment
