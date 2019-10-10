@@ -72,7 +72,7 @@ apt:
 .PHONY: travis-apt
 travis-apt:
 	# The minimal VM travis spins up needs some X11 dependencies
-	sudo apt install x11-common x11-utils
+	sudo apt-get install x11-common x11-utils
 
 # Set up python virtual environment
 .PHONY: virtualenv
