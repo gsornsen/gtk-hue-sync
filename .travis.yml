@@ -14,6 +14,9 @@ install:
 
 jobs:
   include:
+    # - stage: "Tests"
+    #   name: "Unit Tests"
+    #   script: make test
     - if: branch = master
       stage: "Release"
       name: "GitHub Release"
