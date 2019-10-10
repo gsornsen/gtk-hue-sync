@@ -37,4 +37,7 @@ rm -rf /tmp/color-thief-py
 # Set-up yapf pre-commit hook
 cp -rv git_hooks/pre-commit .git/hooks/pre-commit
 
+# Export PYTHONPATH env var
+export PYTHONPATH="$CWD"
+
 echo $'\nSuccess! Please enter source env/bin/activate\n'
