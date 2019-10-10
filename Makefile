@@ -35,7 +35,6 @@ deb: make prerm postinst control
 # Write the control file
 .PHONY: control
 control:
-	@ mkdir -p ${DEB_BUILD_DIR}/DEBIAN
 	@ echo "Package: ${PACKAGE_NAME}\n\
 	Architecture: ${ARCHITECTURE}\n\
 	Maintainer: ${MAINTAINER}\n\
@@ -47,6 +46,7 @@ control:
 # Write prerm script
 .PHONY: prerm
 prerm:
+	@ mkdir -p ${DEB_BUILD_DIR}/DEBIAN
 	@ printf '#!/bin/bash\n\
 	sudo rm -rf $${INSTALL_DIR}/gtk-hue-sync\n\
 	sudo rm -rf $${CONFIG_DIR}' > ${DEB_BUILD_DIR}/DEBIAN/prerm
