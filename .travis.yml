@@ -14,10 +14,12 @@ install:
 
 jobs:
   include:
+    stage: "Tests"
+    name: "Unit Tests"
+    script: make test
     - if: branch = master
       stage: "Release"
       name: "GitHub Release"
-      script: make test
       script: make deb BUILD_NUMBER=$TRAVIS_TAG
       before_deploy:
         - git config --local user.name "gsornsen"
@@ -36,7 +38,6 @@ jobs:
     - if: branch = develop
       stage: "Dev Release"
       name: "GitHub Dev Release"
-      script: make test
       script: make deb BUILD_NUMBER=$TRAVIS_TAG PACKAGE_NAME=gtk-hue-sync-dev
       before_deploy:
         - git config --local user.name "gsornsen"
