@@ -43,7 +43,7 @@ class Sync:
                                                  rgb_color[2])
             # Be verbose about what we're doing
             if self.verbose is True:
-                print(f'RGB{rgb_color} ==> XY{xy_color}')
+                print(f'RGB{rgb_color} -- XY{xy_color}')
                 print(
                     f'Fullscreen: {self.fullscreen}\nInterval: {self.interval}\nTransition: {self.transition}\n'
                     f'Ignore White Pixels: {self.ignore_white}\nIgnore Black Pixels: {self.ignore_black}\n'
