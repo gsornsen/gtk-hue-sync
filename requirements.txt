@@ -5,7 +5,7 @@ Pillow>=6.2.0
 qhue==1.0.12
 numpy==1.17.2
 PyInstaller>=3.6
-PyYAML==5.1.2
+PyYAML==5.4
 pylint==2.3.1
 yapf==0.28.0
 flake8==3.7.8
